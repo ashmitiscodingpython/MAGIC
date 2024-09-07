@@ -13,7 +13,7 @@ apple, pineapple, mango, blueberry, strawberry = 0
 
 def update():
     global index
-    print('IS YOUR FRUIT HERE?')
+    print('Is your fruit here?')
     print(*chosen[index])
     x = input('> ').upper()
     if x == 'YES':
