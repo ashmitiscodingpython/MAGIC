@@ -1,9 +1,9 @@
 import time
 chosen = [
-    ['APPLE', 'PINEAPPLE', 'MANGO'],
-    ['MANGO', 'APPLE', 'BLUEBERRY'],
-    ['BLUEBERRY', 'STRAWBERRY', 'APPLE'],
-    ['MANGO', 'STRAWBERRY', 'PINEAPPLE']
+    ['Apple', 'Pineapple', 'Mango'],
+    ['Mango', 'Apple', 'Blueberry'],
+    ['Blueberry', 'Strawberry', 'Apple'],
+    ['Mango', 'Strawberry', 'Pineapple']
 ]
 UAnswers = []
 Chosen = [False, False, False, False]
