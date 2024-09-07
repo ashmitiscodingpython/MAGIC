@@ -8,11 +8,7 @@ chosen = [
 UAnswers = []
 Chosen = [False, False, False, False]
 index = 0
-apple1, apple2, apple3 = False, False, False
-blueberry1, blueberry2 = False, False
-mango1, mango2, mango3 = False, False, False
-pineapple1, pineapple2 = False, False
-strawberry1, strawberry2 = False, False
+apple, pineapple, mango, blueberry, strawberry = 0
 
 
 def update():
@@ -27,46 +23,59 @@ def update():
     index += 1
 
 
-def update2():
-    global apple1, apple2, apple3, mango1, mango2, mango3, pineapple1, pineapple2, blueberry1, blueberry2, strawberry1, strawberry2
-    if Chosen[0]:
-        apple1, pineapple1, mango1 = True, True, True
-    if Chosen[1]:
-        mango2, apple2, blueberry1 = True, True, True
-    if Chosen[2]:
-        blueberry2, strawberry1, apple3 = True, True, True
-    if Chosen[3]:
-        mango3, strawberry2, pineapple2 = True, True, True
-
-
 def check():
-    if apple1 and apple2 and apple3:
-        print('YOUR FRUIT IS...')
-        time.sleep(1)
-        print('APPLE!')
-    elif mango1 and mango2 and mango3:
-        print('YOUR FRUIT IS...')
-        time.sleep(1)
-        print('MANGO!')
-    elif blueberry1 and blueberry2:
-        print('YOUR FRUIT IS...')
-        time.sleep(1)
-        print('BLUEBERRY!')
-    elif pineapple1 and pineapple2:
-        print('YOUR FRUIT IS...')
-        time.sleep(1)
-        print('PINEAPPLE!')
-    elif strawberry1 and strawberry2:
-        print('YOUR FRUIT IS...')
-        time.sleep(1)
-        print('STRAWBERRY!')
+    global apple, blueberry, strawberry, mango, pineapple
+    if Chosen[0]:
+        apple += 1
+        pineapple += 1
+        mango += 1
+    if Chosen[1]:
+        mango += 1
+        apple += 1
+        blueberry += 1
+    if Chosen[2]:
+        blueberry += 1
+        strawberry += 1
+        apple += 1
+    if Chosen[3]:
+        mango += 1
+        strawberry += 1
+        apple += 1
+
+
+def announce():
+    fruit = None
+    if apple == 3:
+        fruit = "Apple"
+    elif mango == 3:
+        fruit = "Mango"
+    elif blueberry == 2:
+        fruit = "Blueberry"
+    elif pineapple == 2:
+        fruit = "Pineapple"
+    elif strawberry == 2:
+        fruit = "Strawberry"
     else:
-        print('SORRY THERE SEEMS TO BE A MISTAKE ON YOUR END.')
+        print('Sorry, there seems to be a mistake at your end.')
+        return
+    print("Your fruit is...")
+    time.sleep(0.5)
+    print(".....")
+    time.sleep(0.5)
+    print("Let me see....")
+    time.sleep(1)
+    print(f"Yes, your fruit is {fruit}!")
+    time.sleep(0.5)
+    print("Yes, thank you, thank you! *bows*")
+    time.sleep(0.1)
+    print("Byeeee...")
+    time.sleep(0.1)
+    print("For now....")
 
-
-print('HELLO. WELCOME TO MAGIC!\nCHOOSE A FRUIT FROM HERE\nAPPLE BLUEBERRY MANGO PINEAPPLE STRAWBERRY')
+        
+print('Hello! Welcome to the MAGIC project!\nChoose a fruit from any of these:\nApple Blueberry Mango Pineapple Strawberry')
 time.sleep(3)
 for i in range(4):
     update()
-update2()
 check()
+announce()
