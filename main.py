@@ -5,71 +5,52 @@ chosen = [
     ['Blueberry', 'Strawberry', 'Apple'],
     ['Mango', 'Strawberry', 'Pineapple']
 ]
-UAnswers = []
-Chosen = [False, False, False, False]
+code = ''
+fruits_ = ["1101", "1110", "1001", "0110", "0011"]
+fruits = ["Mango", "Apple", "Pineapple", "Blueberry", "Strawberry"]
+fruit = ''
 index = 0
-apple, pineapple, mango, blueberry, strawberry = 0
 
 
 def update():
-    global index
+    global index, code
     print('Is your fruit here?')
-    print(*chosen[index])
+    print(f"{chosen[index][0]}, {chosen[index][1]}, {chosen[index][2]}")
     x = input('> ').upper()
     if x == 'YES':
-        Chosen[index] = True
+        code += "1"
     else:
-        pass
+        code += "0"
     index += 1
 
 
 def check():
-    global apple, blueberry, strawberry, mango, pineapple
-    if Chosen[0]:
-        apple += 1
-        pineapple += 1
-        mango += 1
-    if Chosen[1]:
-        mango += 1
-        apple += 1
-        blueberry += 1
-    if Chosen[2]:
-        blueberry += 1
-        strawberry += 1
-        apple += 1
-    if Chosen[3]:
-        mango += 1
-        strawberry += 1
-        apple += 1
-
+    global fruit, fruits, fruits_
+    try:
+        fruit = fruits[fruits_.index(code)]
+    except ValueError:
+        print("There has been a mistake at your end. Please run the program again and enter correct inputs.")
+        exit(-1)
 
 def announce():
-    fruit = None
-    if apple == 3:
-        fruit = "Apple"
-    elif mango == 3:
-        fruit = "Mango"
-    elif blueberry == 2:
-        fruit = "Blueberry"
-    elif pineapple == 2:
-        fruit = "Pineapple"
-    elif strawberry == 2:
-        fruit = "Strawberry"
-    else:
-        print('Sorry, there seems to be a mistake at your end.')
-        return
-    print("Your fruit is...")
-    time.sleep(0.5)
-    print(".....")
-    time.sleep(0.5)
-    print("Let me see....")
+    global fruit
+    time.sleep(2)
+    print(".... (Where's that script when you actually need it????)")
+    time.sleep(2)
+    print("(Ah, here it is!)")
     time.sleep(1)
+    print("Ahem! Your fruit is...")
+    time.sleep(2)
+    print(".....")
+    time.sleep(1)
+    print("Let me see....(Where are my glasses??!)")
+    time.sleep(2)
     print(f"Yes, your fruit is {fruit}!")
-    time.sleep(0.5)
+    time.sleep(1)
     print("Yes, thank you, thank you! *bows*")
-    time.sleep(0.1)
+    time.sleep(1)
     print("Byeeee...")
-    time.sleep(0.1)
+    time.sleep(1)
     print("For now....")
 
         
